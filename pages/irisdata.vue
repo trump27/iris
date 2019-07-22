@@ -3,7 +3,7 @@
     <h2 class="ma-2">IRIS 学習データ</h2>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="primary" flat nuxt to="/predict">品種の予測</v-btn>
+      <v-btn color="primary" nuxt to="/predict">品種の予測</v-btn>
     </v-card-actions>
     <v-data-table :headers="headers" :items="iris" :rows-per-page-items="pagni" class="elevation-1">
       <template v-slot:items="props">

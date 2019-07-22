@@ -12,8 +12,8 @@
           <p>予測する場合は、予測APIサーバーを起動してください。</p>
           <hr class="my-3" />
           <v-spacer />
-          <v-btn color="primary" flat nuxt to="/irisdata">データ一覧</v-btn>
-          <v-btn color="primary" flat nuxt to="/predict">品種の予測</v-btn>
+          <v-btn color="primary" nuxt to="/irisdata">データ一覧</v-btn>
+          <v-btn color="primary" nuxt to="/predict">品種の予測</v-btn>
 
           <hr class="my-3" />
           <p>Data:</p>

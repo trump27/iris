@@ -4,7 +4,7 @@
     <h3 class="mt-2">特徴量</h3>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="primary" flat nuxt to="/irisdata">IRISの学習データ</v-btn>
+      <v-btn color="primary" nuxt to="/irisdata">IRISの学習データ</v-btn>
     </v-card-actions>
     <v-form>
       <v-container>
