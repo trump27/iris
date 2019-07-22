@@ -4,7 +4,7 @@
     <h3 class="mt-2">特徴量</h3>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="primary" flat nuxt to="/inspire">IRISの学習データ</v-btn>
+      <v-btn color="primary" flat nuxt to="/irisdata">IRISの学習データ</v-btn>
     </v-card-actions>
     <v-form>
       <v-container>
@@ -61,11 +61,11 @@
       <v-toolbar card color="pink" dark>
         <v-toolbar-title>予測API結果</v-toolbar-title>
       </v-toolbar>
-      <v-text-field label="IRIS品種予測" single-line full-width hide-details></v-text-field>
-      <v-text-field single-line full-width v-model="prediction" hide-details></v-text-field>
+      <v-text-field value="IRIS品種予測" single-line full-width hide-details></v-text-field>
+      <v-text-field single-line full-width v-model="prediction" hide-details box></v-text-field>
       <v-divider />
       <v-text-field value="予測確率" single-line full-width hide-details></v-text-field>
-      <v-text-field single-line full-width v-model="proba" hide-details></v-text-field>
+      <v-text-field single-line full-width v-model="proba" hide-details box></v-text-field>
     </v-card>
 
     <v-snackbar v-model="snackbar" :color="color" :top="true" :timeout="2000" :vertical="false">
@@ -92,7 +92,8 @@ export default {
       color: 'primary',
       // mode: 'vertical',
       prediction: null,
-      proba: null
+      proba: null,
+      class: {0: 'setosa', 1: 'versicolor', 2: 'virginica'}
     }
   },
   methods: {
@@ -110,7 +111,7 @@ export default {
       })
       console.log('response: ', result)
       this.snackbar = true
-      this.prediction = result.predict
+      this.prediction = this.class[result.predict]
       this.proba = result.proba
     }
   }

@@ -65,19 +65,19 @@ export default {
         },
         {
           icon: 'bubble_chart',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'データ一覧',
+          to: '/irisdata'
         },
         {
           icon: 'done_all',
-          title: 'Predict',
+          title: '予測',
           to: '/predict'
         }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: '予測システムサンプル'
+      title: 'AI予測システムサンプル'
     }
   }
 }
