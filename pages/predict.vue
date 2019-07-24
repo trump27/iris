@@ -57,6 +57,7 @@
       color="info"
     >予測API</v-btn>
 
+    {{api}}
     <v-card class="mt-4">
       <v-toolbar card color="pink" dark>
         <v-toolbar-title>予測API結果</v-toolbar-title>
@@ -93,23 +94,34 @@ export default {
       // mode: 'vertical',
       prediction: null,
       proba: null,
-      class: {0: 'setosa', 1: 'versicolor', 2: 'virginica'}
+      class: { 0: 'setosa', 1: 'versicolor', 2: 'virginica' },
+      api: null
     }
+  },
+  mounted() {
+    this.api = config.api_host
   },
   methods: {
     async predict() {
       let self = this
       console.log('host: ', config.api_host)
 
-      let result = await this.$axios.$post(config.api_host + '/predict', {
-        feature: [
-          self.sepal_length,
-          self.sepal_width,
-          self.petal_length,
-          self.petal_width
-        ]
-      })
-      console.log('response: ', result)
+      let result = null
+      try {
+        result = await this.$axios.$post(config.api_host + '/predict', {
+          feature: [
+            self.sepal_length,
+            self.sepal_width,
+            self.petal_length,
+            self.petal_width
+          ]
+        })
+        console.log('response: ', result)
+      } catch (error) {
+        window.alert('cannot connect api server')
+        console.log('error: ', error)
+        return
+      }
       this.snackbar = true
       this.prediction = this.class[result.predict]
       this.proba = result.proba

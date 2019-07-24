@@ -16,6 +16,7 @@
           <v-btn color="primary" nuxt to="/predict">品種の予測</v-btn>
 
           <hr class="my-3" />
+          <img src="@/assets/iris.png" width="600">
           <p>Data:</p>
           <pre>
 **Data Set Characteristics:**
@@ -66,6 +67,10 @@ export default {
   components: {
     Logo,
     VuetifyLogo
+  },
+  data() {
+    return {
+    }
   }
 }
 </script>
